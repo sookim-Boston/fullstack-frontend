@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>POMODORO</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,62 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>WELCOME TO POMODORO</h1>
+      <h4>Enhance your productivity</h4>
+      <div id="message"></div>
+      <div id ="hideOnceSignIn">
+        <div class='sign-up'>
+          <form id='sign-up' class='border'>
+            <fieldset>
+              <legend>Sign up</legend>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <input type= "submit" value="Sign up">
+            </fieldset>
+          </form>
+        </div>
+        <div id='message2'></div>
+        <div class='sign-in'>
+          <form id='sign-in' class= 'border'>
+            <fieldset>
+              <legend>Sign in</legend>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="submit" value="Sign in">
+            </fieldset>
+          </form>
+      </div>
+    </div>
+      <div id= "hideBeforeSignIn">
+        <div id ='signed-in-user'></div>
+        <div id="messageChangePW"></div>
+        <div class="pos-f-t">
+          <div class="collapse" id="navbarToggleExternalContent">
+            <div class="background">
+              <form id='sign-out' class = 'sign-out' class='border'>
+                <fieldset>
+                  <input type="submit" value="Sign out">
+                </fieldset>
+              </form>
+              <div id='index' class='index'>
+                <div id=numberOfPlays class='numberOfPlays'></div>
+                <input type='submit' value='Game Stats'>
+              </div>
+              <form class="change-password" id='change-password'>
+                <input type="password" name="passwords[old]" placeholder="Current Password">
+                <input type="password" name="passwords[new]" placeholder="New Password">
+                <input type="submit" value="Change Password">
+              </form>
+            </div>
+        </div>
+          <nav class="navbar navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </nav>
+        </div>
+        <div id='message3'></div>
+      <footer>Created by Soo K.</footer>
     </body>
 </html>
