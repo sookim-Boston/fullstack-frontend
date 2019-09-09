@@ -1,5 +1,6 @@
 'use strict'
 const store = require('./../store')
+const showTimerTemplate = require('../templates/timers.handlebars')
 
 const signUpSuccess = function () {
   $('#message').text('Signed up successfully')
@@ -43,7 +44,6 @@ const signInSuccess = function (data) {
       .removeClass('success')
   }, 3000)
   $('.dropdown').show()
-  $('#index').show()
   // console.log(store)
 }
 
@@ -101,6 +101,7 @@ const signOutSuccess = function () {
       .removeClass('success')
   }, 3000)
   $('#index').hide()
+  $('#pomodoro-app').html('')
 }
 
 const signOutFailure = function () {

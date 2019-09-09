@@ -6,6 +6,7 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 const authEvents = require('./auth/events')
+const timerEvents = require('./timer/events')
 
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -17,5 +18,7 @@ $(() => {
   $('#sign-out').on('click', () => {
     $('.collapse').collapse('hide')
   })
+  $('#timer').on('submit', timerEvents.onCreate)
+  timerEvents.addHandlers()
   // your JS code goes here
 })

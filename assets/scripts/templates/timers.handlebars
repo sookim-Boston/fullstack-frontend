@@ -1,0 +1,23 @@
+{{#each timers as |timer|}}
+ {{log timer}}
+  <section data-id="{{timer.id}}">
+    <form>
+      <div id="container">
+        <div id='task'></div>
+        <div id="pomodoro-timer">
+          <div id="time">
+            <span id="minutes">{{timer.minutes}}</span>
+            <span id="colon">:</span>
+            <span id="seconds">{{timer.seconds}}</span>
+          </div>
+        </div>
+        <form id="updateTimer">
+          <input type="text"
+        </form>
+      </div>
+      <p></p>
+    </form>
+    <button data-id='{{timer.id}}' class='btn btn-danger delete-button'>Remove</button>
+  </section>
+
+{{/each}}

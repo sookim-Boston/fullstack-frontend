@@ -50,10 +50,6 @@
                   <input type="submit" value="Sign out">
                 </fieldset>
               </form>
-              <div id='index' class='index'>
-                <div id=numberOfPlays class='numberOfPlays'></div>
-                <input type='submit' value='Game Stats'>
-              </div>
               <form class="change-password" id='change-password'>
                 <input type="password" name="passwords[old]" placeholder="Current Password">
                 <input type="password" name="passwords[new]" placeholder="New Password">
@@ -68,14 +64,17 @@
           </nav>
         </div>
         <div id='message3'></div>
-        <div id=timer>
+        <form id = 'timer'>
+        <div>
           <fieldset>
             <input type="text" name="timer[task_name]" placeholder="Enter Task Name">
-            <input type="text" name="timer[length]" placeholder="Pomodoro Duration">
+            <input type="text" name="timer[minutes]" placeholder="minutes">
+            <input type="text" name="timer[seconds]" placeholder="seconds">
             <input type="submit" placeholder="Create Timer"
           </fieldset>
         </div>
-      </div>
-      <footer>Created by Soo K.</footer>
+      </form>
+    <div id='pomodoro-app' class='pomodoro-app'></div>
+    <footer>Created by Soo K.</footer>
     </body>
 </html>
