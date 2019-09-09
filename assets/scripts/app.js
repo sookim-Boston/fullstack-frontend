@@ -8,5 +8,14 @@
 const authEvents = require('./auth/events')
 
 $(() => {
+  $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#hideBeforeSignIn').hide()
+  // your JS code goes here
+  $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#change-password').on('submit', authEvents.onChangePassword)
+  $('#sign-out').on('submit', authEvents.onSignOut)
+  $('#sign-out').on('click', () => {
+    $('.collapse').collapse('hide')
+  })
   // your JS code goes here
 })
