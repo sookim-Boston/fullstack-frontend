@@ -1,6 +1,5 @@
 'use strict'
 const store = require('./../store')
-const showTimerTemplate = require('../templates/timers.handlebars')
 
 const signUpSuccess = function () {
   $('#message').text('Signed up successfully')
@@ -8,6 +7,7 @@ const signUpSuccess = function () {
 
   $('#message').addClass('success')
   $('form').trigger('reset')
+  $('#message3').text('')
   setTimeout(() => {
     $('#message')
       .text('')

@@ -26,6 +26,17 @@
   cursor:default;
 }
 
+#start-button {
+ background:#4da6ff;
+ padding:5px;
+ width:80px;
+ margin:10px auto;
+ font-size:16px;
+ color: white;
+ height : 39px;
+ border-radius : 5px;
+}
+
 #time{
   margin-top:70px;
   z-index : 1;
@@ -38,4 +49,9 @@
   width: 200px;
   position:absolute;
   bottom:0;
+}
+
+#inTimer,
+#task {
+  color: white;
 }
