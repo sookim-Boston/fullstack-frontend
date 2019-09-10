@@ -1,8 +1,10 @@
 // const store = require('./../store')
 const showTimerTemplate = require('../templates/timers.handlebars')
+const store = require('./../store')
 
 const getTimersSuccess = function (data) {
   const showTimers = showTimerTemplate({timers: data.timers})
+  store.timers = {timers: data.timers}
   $('#pomodoro-app').html(showTimers)
   $('form').trigger('reset')
 }

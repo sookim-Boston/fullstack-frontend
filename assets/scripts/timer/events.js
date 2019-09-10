@@ -2,6 +2,7 @@ const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const store = require('./../store')
+const timer = require('./timer')
 
 const onGetTimers = event => {
   // event.preventDefault()
@@ -23,6 +24,7 @@ const onCreate = function (event) {
 const onDelete = (event) => {
   event.preventDefault()
   const id = $(event.target).data('id')
+  console.log(id)
   api.deleteTimer(id)
     .then(() => onGetTimers(event))
     .then(ui.onDeleteSuccess)
@@ -43,15 +45,10 @@ const onUpdate = (event) => {
     .catch(ui.onFailure)
 }
 
-const onStart = (event) => {
-  event.preventDefault()
-  console.log('timer', store.timer)
-}
-
 const addHandlers = () => {
   $('#pomodoro-app').on('click', '.delete-button', onDelete)
-  $('#pomodoro-app').on('submit', '#updateTimer', onUpdate)
-  $('#pomodoro-app').on('click', '#start-button', onStart)
+  $('#pomodoro-app').on('submit', '.updateTimer', onUpdate)
+  $('#pomodoro-app').on('click', '.start-button', timer.onStart)
 }
 
 module.exports = {

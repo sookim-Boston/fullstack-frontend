@@ -1,25 +1,25 @@
 {{#each timers as |timer|}}
  {{log timer}}
   <section data-id="{{timer.id}}">
-      <div id="container">
-        <div id="task">
+      <div class="container">
+        <div class="task">
           {{#if timer.task_name}}
           {{timer.task_name}}
           {{else}}
           untitled
           {{/if}}
           </div>
-        <div id="pomodoro-timer">
-          <div id="time">
-            <span id="minutes">
+        <div id={{timer.id}} class="pomodoro-timer">
+          <div class="time">
+            <span class="minutes">
               {{#if timer.minutes}}
               {{timer.minutes}}
               {{else}}
               00
               {{/if}}
             </span>
-            <span id="colon">:</span>
-            <span id="seconds">
+            <span class="colon">:</span>
+            <span class="seconds">
               {{#if timer.seconds}}
               {{timer.seconds}}
               {{else}}
@@ -28,14 +28,14 @@
             </span>
           </div>
         </div>
-          <form data-id='{{timer.id}}' id='updateTimer'>
+          <form data-id='{{timer.id}}' class='updateTimer'>
             <input type="text" name="timer[task_name]" placeholder="Enter Task Name">
             <input type="text" name="timer[minutes]" placeholder="minutes">
-            <input type="text" name="timer[seconds]" placeholder="seconds">
+            <input type="text" class="seconds" name="timer[seconds]" placeholder="seconds">
             <input type="submit" placeholder="Update Timer" value="Update">
         </form>
       </div>
-    <button data-id='{{timer.id}}' id='start-button'>Start</button>
+    <button data-id='{{timer.id}}' class='start-button'>Start</button>
     <button data-id='{{timer.id}}' class='btn btn-danger delete-button'>Remove</button>
   </section>
 

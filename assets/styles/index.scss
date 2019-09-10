@@ -1,5 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
-#container{
+.container {
   border:1px solid #333;
   border-radius :20px;
   width:400px;
@@ -9,7 +9,7 @@
   background : #333;
 }
 
-#pomodoro-timer{
+.pomodoro-timer {
   color:#f00;
   font-size:50px;
   margin:10px auto;
@@ -23,10 +23,9 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor:default;
 }
 
-#start-button {
+.start-button {
  background:#4da6ff;
  padding:5px;
  width:80px;
@@ -37,21 +36,13 @@
  border-radius : 5px;
 }
 
-#time{
+.time {
   margin-top:70px;
   z-index : 1;
   position:relative;
 }
 
-#filler{
-  background : #ddffcc;
-  height: 0px;
-  width: 200px;
-  position:absolute;
-  bottom:0;
-}
-
-#inTimer,
-#task {
+.inTimer,
+.task {
   color: white;
 }
