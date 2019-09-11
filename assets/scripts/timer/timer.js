@@ -11,7 +11,7 @@ const onStart = function (event) {
   // convert minutes into seconds and add to seconds
   let seconds = newArray[0]['minutes'] * 60 + newArray[0]['seconds']
   // if seconds is more than 0, it will run setInterval () every 1 milliseconds
-  setInterval(function () {
+  store.interval = setInterval(function () {
     if (seconds > 0) {
       seconds--
       let displaySeconds = Math.floor(seconds / 60)
