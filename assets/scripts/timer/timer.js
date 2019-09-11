@@ -5,19 +5,23 @@ const onStart = function (event) {
   const timerId = $(event.target).data('id')
   const timerElement = $('#' + timerId)
   // filter the array to get the object that matches the value of id
-  const arrayOfTimers = store.timers.timers
-  const newArray = arrayOfTimers.filter(obj => {
+  const newArray = (store.timers.timers).filter(obj => {
     return obj['id'] === timerId
   })
   let seconds = newArray[0]['minutes'] * 60 + newArray[0]['seconds']
   setInterval(function () {
     if (seconds > 0) {
       seconds--
-      timerElement.find('.minutes').html(Math.floor(seconds / 60))
-      timerElement.find('.seconds').html(seconds % 60)
-    } else {
-      timerElement.find('.minutes').html('00')
-      timerElement.find('.seconds').html('00')
+      let displaySeconds = Math.floor(seconds / 60)
+      let minutes = seconds % 60
+      if (displaySeconds < 10) {
+        displaySeconds = `0${displaySeconds}`
+      }
+      if (minutes < 10) {
+        minutes = `0${minutes}`
+      }
+      timerElement.find('.minutes').html(displaySeconds)
+      timerElement.find('.seconds').html(minutes)
     }
   }, 1000)
 }

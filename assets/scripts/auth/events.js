@@ -18,7 +18,6 @@ const onSignIn = function (event) {
     .then(ui.signInSuccess)
     .then(timer.onGetTimers)
     .catch(ui.signInFailure)
-  // console.log(data)
 }
 const onChangePassword = function (event) {
   event.preventDefault()

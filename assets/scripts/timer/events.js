@@ -24,7 +24,6 @@ const onCreate = function (event) {
 const onDelete = (event) => {
   event.preventDefault()
   const id = $(event.target).data('id')
-  console.log(id)
   api.deleteTimer(id)
     .then(() => onGetTimers(event))
     .then(ui.onDeleteSuccess)
@@ -45,10 +44,30 @@ const onUpdate = (event) => {
     .catch(ui.onFailure)
 }
 
+const onReset = (event) => {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  const timerElement = $('#' + id)
+  const newArray = (store.timers.timers).filter(obj => {
+    return obj['id'] === id
+  })
+  let seconds = newArray[0]['seconds']
+  let minutes = newArray[0]['minutes']
+  if (seconds.toString().length === 1) {
+    seconds = `0${seconds}`
+  }
+  if (minutes.toString().length === 1) {
+    minutes = `0${minutes}`
+  }
+  timerElement.find('.minutes').html(minutes)
+  timerElement.find('.seconds').html(seconds)
+}
+
 const addHandlers = () => {
   $('#pomodoro-app').on('click', '.delete-button', onDelete)
   $('#pomodoro-app').on('submit', '.updateTimer', onUpdate)
   $('#pomodoro-app').on('click', '.start-button', timer.onStart)
+  $('#pomodoro-app').on('click', '.reset-button', onReset)
 }
 
 module.exports = {

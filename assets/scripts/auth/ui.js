@@ -13,8 +13,6 @@ const signUpSuccess = function () {
       .text('')
       .removeClass('success')
   }, 3000)
-
-  // console.log('signUpSuccess ran')
 }
 
 const signUpFailure = function () {
@@ -34,7 +32,6 @@ const signInSuccess = function (data) {
     .text('Succesfully signed in! User is: ' + data.user.email)
     .addClass('success')
   store.user = data.user
-  // console.log('Successful sign in! User is ', store.user)
   $('#hideBeforeSignIn').show()
   $('#hideOnceSignIn').hide()
   $('form').trigger('reset')
@@ -44,7 +41,6 @@ const signInSuccess = function (data) {
       .removeClass('success')
   }, 3000)
   $('.dropdown').show()
-  // console.log(store)
 }
 
 const signInFailure = function () {

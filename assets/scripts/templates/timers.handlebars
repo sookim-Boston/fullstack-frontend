@@ -1,5 +1,4 @@
 {{#each timers as |timer|}}
- {{log timer}}
   <section data-id="{{timer.id}}">
       <div class="container">
         <div class="task">
@@ -13,7 +12,7 @@
           <div class="time">
             <span class="minutes">
               {{#if timer.minutes}}
-              {{timer.minutes}}
+              {{zero timer.minutes}}
               {{else}}
               00
               {{/if}}
@@ -21,7 +20,7 @@
             <span class="colon">:</span>
             <span class="seconds">
               {{#if timer.seconds}}
-              {{timer.seconds}}
+              {{zero timer.seconds}}
               {{else}}
               00
               {{/if}}
@@ -36,6 +35,7 @@
         </form>
       </div>
     <button data-id='{{timer.id}}' class='start-button'>Start</button>
+    <button data-id='{{timer.id}}' class='reset-button'>Reset</button>
     <button data-id='{{timer.id}}' class='btn btn-danger delete-button'>Remove</button>
   </section>
 
