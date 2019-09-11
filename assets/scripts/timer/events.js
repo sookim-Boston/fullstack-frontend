@@ -48,6 +48,7 @@ const onUpdate = (event) => {
 const onReset = (event) => {
   event.preventDefault()
   clearInterval(store.interval)
+  $('.start-button').prop('disabled', false)
   const id = $(event.target).data('id')
   const timerElement = $('#' + id)
   // filter the array to get the object that matches the value of id
@@ -58,12 +59,18 @@ const onReset = (event) => {
   let seconds = newArray[0]['seconds']
   let minutes = newArray[0]['minutes']
   // only reset when the number length is 1
-  if (seconds.toString().length === 1) {
+  if (seconds !== null && seconds.toString().length === 1) {
     seconds = `0${seconds}`
     timerElement.find('.seconds').html(seconds)
+  } else if (seconds === null) {
+    seconds = '00'
+    timerElement.find('.seconds').html(seconds)
   }
-  if (minutes.toString().length === 1) {
+  if (minutes !== null && minutes.toString().length === 1) {
     minutes = `0${minutes}`
+    timerElement.find('.minutes').html(minutes)
+  } else if (minutes === null) {
+    minutes = '00'
     timerElement.find('.minutes').html(minutes)
   }
   timerElement.find('.minutes').html(minutes)
