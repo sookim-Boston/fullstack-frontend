@@ -35,6 +35,7 @@ const onUpdate = (event) => {
   const updateId = $(event.target).data('id')
   const data = getFormFields(event.target)
   $('#message3').text('timer updated!')
+  // timer updated message will be gone after 3 milliseconds
   setTimeout(() => {
     $('#message3')
       .text('')
@@ -48,11 +49,14 @@ const onReset = (event) => {
   event.preventDefault()
   const id = $(event.target).data('id')
   const timerElement = $('#' + id)
+  // filter the array to get the object that matches the value of id
   const newArray = (store.timers.timers).filter(obj => {
     return obj['id'] === id
   })
+  // get the value of minutes and seconds from the data and set them as variables
   let seconds = newArray[0]['seconds']
   let minutes = newArray[0]['minutes']
+  // only reset when the number length is 1
   if (seconds.toString().length === 1) {
     seconds = `0${seconds}`
   }
