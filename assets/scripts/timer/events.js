@@ -59,9 +59,11 @@ const onReset = (event) => {
   // only reset when the number length is 1
   if (seconds.toString().length === 1) {
     seconds = `0${seconds}`
+    timerElement.find('.seconds').html(seconds)
   }
   if (minutes.toString().length === 1) {
     minutes = `0${minutes}`
+    timerElement.find('.minutes').html(minutes)
   }
   timerElement.find('.minutes').html(minutes)
   timerElement.find('.seconds').html(seconds)
