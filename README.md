@@ -2,8 +2,9 @@
 For this project, I created Pomodoro timer. Pomodoro is meant to create productivity by breaking down one task for intervals (usually 25 minutes).
 Once the user signs up and signs in, they can start creating the timer with task name, minutes, and seconds. The user has an option to update their timer as needed. They can start the timer by clicking start button and once the timer ends, the user can reset the timer and start it again. The user can also remove the timer. When the user signs out, their timer will be saved so they can retrieve it again when they sign in again later.
 
-<a href=https://github.com/sookim-Boston/fullstack-backend>Repo for Pomodoro's Ruby on Rails API</a>
-<a href=https://pomodoro-fullstack.herokuapp.com>Deployed backend Heroku</a>
+- <a href=https://github.com/sookim-Boston/fullstack-backend>Repo for Pomodoro's Ruby on Rails API</a>
+
+- <a href=https://pomodoro-fullstack.herokuapp.com>Deployed backend Heroku</a>
 
 ### Technologies used
 - HTML
@@ -49,4 +50,5 @@ As a user, I should be able to change name and length of my timer
 As a user, I should be able to delete my timer
 
 Wireframes
+
 <img src=https://i.imgur.com/e2LROMm.jpg>
