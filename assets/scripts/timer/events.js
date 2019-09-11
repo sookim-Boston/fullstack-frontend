@@ -48,7 +48,7 @@ const onUpdate = (event) => {
 const onReset = (event) => {
   event.preventDefault()
   clearInterval(store.interval)
-  $('.start-button').prop('disabled', false)
+  $('.start-button').attr('disabled', false)
   const id = $(event.target).data('id')
   const timerElement = $('#' + id)
   // filter the array to get the object that matches the value of id
