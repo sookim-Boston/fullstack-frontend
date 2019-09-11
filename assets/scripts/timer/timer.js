@@ -2,7 +2,7 @@ const store = require('./../store')
 
 const onStart = function (event) {
   event.preventDefault()
-  $('.start-button').attr('disabled', true)
+  $('.start-button').attr('disabled', 'disabled')
   const timerId = $(event.target).data('id')
   const timerElement = $('#' + timerId)
   // filter the array to get the object that matches the value of id
