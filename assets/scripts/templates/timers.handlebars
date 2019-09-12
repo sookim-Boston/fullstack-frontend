@@ -33,10 +33,10 @@
             <input type="text" class="seconds" name="timer[seconds]" placeholder="seconds">
             <input type="submit" placeholder="Update Timer" value="Update">
         </form>
+        <button data-id='{{timer.id}}' class='start-button'>Start</button>
+        <button data-id='{{timer.id}}' class='reset-button'>Reset</button>
+        <button data-id='{{timer.id}}' class='btn btn-danger delete-button'>Remove</button>
       </div>
-    <button data-id='{{timer.id}}' class='start-button'>Start</button>
-    <button data-id='{{timer.id}}' class='reset-button'>Reset</button>
-    <button data-id='{{timer.id}}' class='btn btn-danger delete-button'>Remove</button>
   </section>
 
 {{/each}}
