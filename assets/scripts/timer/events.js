@@ -17,8 +17,10 @@ const onCreate = function (event) {
   store.timer = data
   if (data.timer.seconds >= 60) {
     $('#message3').html('You can only go up to 59 seconds!')
+    $('form').trigger('reset')
   } else if (data.timer.minutes >= 100) {
     $('#message3').html('You can only go up to 99 minutes!')
+    $('form').trigger('reset')
   } else {
     api.create(data)
       .then(() => onGetTimers(event))
@@ -45,9 +47,17 @@ const onUpdate = (event) => {
     $('#message3')
       .text('')
   }, 3000)
-  api.updateTimer(data, updateId)
-    .then(() => onGetTimers(event))
-    .catch(ui.onFailure)
+  if (data.timer.seconds >= 60) {
+    $('#message3').html('You can only go up to 59 seconds!')
+    $('form').trigger('reset')
+  } else if (data.timer.minutes >= 100) {
+    $('#message3').html('You can only go up to 99 minutes!')
+    $('form').trigger('reset')
+  } else {
+    api.updateTimer(data, updateId)
+      .then(() => onGetTimers(event))
+      .catch(ui.onFailure)
+  }
 }
 
 const onReset = (event) => {
