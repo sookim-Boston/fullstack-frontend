@@ -15,12 +15,17 @@ const onCreate = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   store.timer = data
-  api.create(data)
-    .then(() => onGetTimers(event))
-    .then(ui.onCreateSuccess)
-    .catch(ui.onFailure)
+  if (data.timer.seconds >= 60) {
+    $('#message3').html('You can only go up to 59 seconds!')
+  } else if (data.timer.minutes >= 100) {
+    $('#message3').html('You can only go up to 99 minutes!')
+  } else {
+    api.create(data)
+      .then(() => onGetTimers(event))
+      .then(ui.onCreateSuccess)
+      .catch(ui.onFailure)
+  }
 }
-
 const onDelete = (event) => {
   event.preventDefault()
   const id = $(event.target).data('id')
