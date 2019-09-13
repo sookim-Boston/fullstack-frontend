@@ -2,10 +2,11 @@ const store = require('./../store')
 
 const onStart = function (event) {
   event.preventDefault()
-  $('.start-button').attr('disabled', 'disabled')
-  $('.pause-button').removeAttr('disabled')
   const timerId = $(event.target).data('id')
   const timerElement = $('#' + timerId)
+  const buttonElement = $('[data-id =' + timerId + ']')
+  $('.start-button').attr('disabled', 'disabled')
+  buttonElement.find('.pause-button').removeAttr('disabled')
   // filter the array to get the object that matches the value of id
   const newArray = (store.timers.timers).filter(obj => {
     return obj['id'] === timerId

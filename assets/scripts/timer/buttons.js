@@ -67,13 +67,14 @@ const onPause = (event) => {
   $('.start-button').attr('disabled', 'disabled')
   const timerId = $(event.target).data('id')
   const timerElement = $('#' + timerId)
+  const buttonElement = $('[data-id =' + timerId + ']')
   event.preventDefault()
   clearInterval(store.interval)
   clearInterval(store.resumeInterval)
   timerElement.find('.minutes').html(store.instantMinutes)
   timerElement.find('.seconds').html(store.instantSeconds)
-  $('.pause-button').hide()
-  $('.resume-button').show()
+  buttonElement.find('.pause-button').hide()
+  buttonElement.find('.resume-button').show()
 }
 module.exports = {
   onResume,

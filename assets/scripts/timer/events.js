@@ -5,7 +5,7 @@ const store = require('./../store')
 const timer = require('./timer')
 const button = require('./buttons')
 
-const onGetTimers = event => {
+const onGetTimers = (event) => {
   // event.preventDefault()
   api.getTimers()
     .then(ui.getTimersSuccess)
@@ -46,8 +46,10 @@ const onDelete = (event) => {
 
 const onUpdate = (event) => {
   event.preventDefault()
+  const timerId = $(event.target).data('id')
+  const timerElement = $('#' + timerId)
   clearInterval(store.resumeInterval)
-  $('.pause-button').attr('disabled', 'disabled')
+  timerElement.find('.pause-button').attr('disabled', 'disabled')
   const updateId = $(event.target).data('id')
   const data = getFormFields(event.target)
   $('#message3').text('timer updated!')
