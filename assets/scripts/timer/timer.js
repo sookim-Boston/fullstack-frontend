@@ -3,6 +3,7 @@ const store = require('./../store')
 const onStart = function (event) {
   event.preventDefault()
   $('.start-button').attr('disabled', 'disabled')
+  $('.pause-button').removeAttr('disabled')
   const timerId = $(event.target).data('id')
   const timerElement = $('#' + timerId)
   // filter the array to get the object that matches the value of id
@@ -27,11 +28,11 @@ const onStart = function (event) {
       // display seconds and minutes
       timerElement.find('.minutes').html(minutes)
       timerElement.find('.seconds').html(displaySeconds)
-      // store.instantMinutes = minutes
-      // store.instantSeconds = displaySeconds
+      store.instantMinutes = minutes
+      store.instantSeconds = displaySeconds
     }
   }, 1000)
-  // console.log(store.instantMinutes)
+  console.log(store.instantMinutes)
 }
 
 module.exports = {

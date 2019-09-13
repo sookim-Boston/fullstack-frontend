@@ -7,11 +7,14 @@ const getTimersSuccess = function (data) {
   store.timers = {timers: data.timers}
   $('#pomodoro-app').html(showTimers)
   $('form').trigger('reset')
+  $('.resume-button').hide()
 }
 
 const onCreateSuccess = function () {
   $('#message3').text('timer created!')
   $('.pause-button').show()
+    .attr('disabled', 'disabled')
+  $('.resume-button').hide()
   setTimeout(() => {
     $('#message3')
       .text('')
