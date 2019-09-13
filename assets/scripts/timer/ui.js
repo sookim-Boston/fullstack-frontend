@@ -8,6 +8,7 @@ const getTimersSuccess = function (data) {
   $('#pomodoro-app').html(showTimers)
   $('form').trigger('reset')
   $('.resume-button').hide()
+  $('.pause-button').attr('disabled', 'disabled')
 }
 
 const onCreateSuccess = function () {

@@ -47,6 +47,7 @@ const onDelete = (event) => {
 const onUpdate = (event) => {
   event.preventDefault()
   clearInterval(store.resumeInterval)
+  $('.pause-button').attr('disabled', 'disabled')
   const updateId = $(event.target).data('id')
   const data = getFormFields(event.target)
   $('#message3').text('timer updated!')
