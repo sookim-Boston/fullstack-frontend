@@ -11,6 +11,7 @@ const getTimersSuccess = function (data) {
 
 const onCreateSuccess = function () {
   $('#message3').text('timer created!')
+  $('.pause-button').show()
   setTimeout(() => {
     $('#message3')
       .text('')

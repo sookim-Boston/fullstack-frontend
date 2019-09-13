@@ -15,8 +15,8 @@ const onStart = function (event) {
   store.interval = setInterval(function () {
     if (seconds > 0) {
       seconds--
-      let displaySeconds = Math.floor(seconds / 60)
-      let minutes = seconds % 60
+      let minutes = Math.floor(seconds / 60)
+      let displaySeconds = seconds % 60
       // if seconds & minutes are less than 10, add 0 in front of the number
       if (displaySeconds < 10) {
         displaySeconds = `0${displaySeconds}`
@@ -25,10 +25,13 @@ const onStart = function (event) {
         minutes = `0${minutes}`
       }
       // display seconds and minutes
-      timerElement.find('.minutes').html(displaySeconds)
-      timerElement.find('.seconds').html(minutes)
+      timerElement.find('.minutes').html(minutes)
+      timerElement.find('.seconds').html(displaySeconds)
+      // store.instantMinutes = minutes
+      // store.instantSeconds = displaySeconds
     }
   }, 1000)
+  // console.log(store.instantMinutes)
 }
 
 module.exports = {
