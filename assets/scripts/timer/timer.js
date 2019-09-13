@@ -32,7 +32,6 @@ const onStart = function (event) {
       store.instantSeconds = displaySeconds
     }
   }, 1000)
-  console.log(store.instantMinutes)
 }
 
 module.exports = {
