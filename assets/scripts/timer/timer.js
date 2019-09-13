@@ -7,6 +7,7 @@ const onStart = function (event) {
   const buttonElement = $('[data-id =' + timerId + ']')
   $('.start-button').attr('disabled', 'disabled')
   buttonElement.find('.pause-button').removeAttr('disabled')
+  buttonElement.find('.reset-button').removeAttr('disabled')
   // filter the array to get the object that matches the value of id
   const newArray = (store.timers.timers).filter(obj => {
     return obj['id'] === timerId

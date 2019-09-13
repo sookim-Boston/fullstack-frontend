@@ -9,6 +9,7 @@ const getTimersSuccess = function (data) {
   $('form').trigger('reset')
   $('.resume-button').hide()
   $('.pause-button').attr('disabled', 'disabled')
+  $('.reset-button').attr('disabled', 'disabled')
 }
 
 const onCreateSuccess = function () {
