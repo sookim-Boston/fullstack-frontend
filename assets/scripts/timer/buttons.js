@@ -3,6 +3,7 @@ const store = require('./../store')
 const onResume = (event) => {
   $('.pause-button').show()
   $('.start-button').attr('disabled', 'disabled')
+  clearInterval(store.interval)
   $('.resume-button').hide()
   const timerId = $(event.target).data('id')
   const timerElement = $('#' + timerId)
