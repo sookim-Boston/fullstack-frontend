@@ -37,6 +37,8 @@ const onCreate = function (event) {
 }
 const onDelete = (event) => {
   event.preventDefault()
+  clearInterval(store.interval)
+  clearInterval(store.resumeInterval)
   const id = $(event.target).data('id')
   api.deleteTimer(id)
     .then(() => onGetTimers(event))
