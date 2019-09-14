@@ -15,6 +15,8 @@ const onGetTimers = (event) => {
 const onCreate = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  clearInterval(store.resumeInterval)
+  clearInterval(store.interval)
   store.timer = data
   if (data.timer.seconds >= 60) {
     $('#message3').html('You can only go up to 59 seconds!')
@@ -51,6 +53,7 @@ const onUpdate = (event) => {
   const timerId = $(event.target).data('id')
   const timerElement = $('#' + timerId)
   clearInterval(store.resumeInterval)
+  clearInterval(store.interval)
   timerElement.find('.pause-button').attr('disabled', 'disabled')
   const updateId = $(event.target).data('id')
   const data = getFormFields(event.target)
