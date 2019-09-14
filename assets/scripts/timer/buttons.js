@@ -1,13 +1,14 @@
 const store = require('./../store')
 
 const onResume = (event) => {
-  $('.pause-button').show()
-  $('.start-button').attr('disabled', 'disabled')
+  event.preventDefault()
   clearInterval(store.interval)
-  $('.resume-button').hide()
   const timerId = $(event.target).data('id')
   const timerElement = $('#' + timerId)
-  let seconds = store.instantMinutes * 60 + store.instantSeconds
+  const buttonElement = $('[data-id =' + timerId + ']')
+  buttonElement.find('.resume-button').hide()
+  $('.start-button').attr('disabled', 'disabled')
+  let seconds = parseInt(store.instantMinutes) * 60 + parseInt(store.instantSeconds)
   store.resumeInterval = setInterval(function () {
     if (seconds > 0) {
       seconds--
@@ -20,12 +21,13 @@ const onResume = (event) => {
       if (minutes < 10) {
         minutes = `0${minutes}`
       }
-      store.instantMinutes = parseInt(minutes)
-      store.instantSeconds = parseInt(displaySeconds)
+      store.instantMinutes = minutes
+      store.instantSeconds = displaySeconds
       timerElement.find('.minutes').html(minutes)
       timerElement.find('.seconds').html(displaySeconds)
     }
   }, 1000)
+  buttonElement.find('.pause-button').show()
 }
 
 const onReset = (event) => {
@@ -65,15 +67,16 @@ const onReset = (event) => {
 }
 
 const onPause = (event) => {
+  event.preventDefault()
+  clearInterval(store.interval)
+  clearInterval(store.resumeInterval)
   $('.start-button').attr('disabled', 'disabled')
   const timerId = $(event.target).data('id')
   const timerElement = $('#' + timerId)
   const buttonElement = $('[data-id =' + timerId + ']')
-  event.preventDefault()
-  clearInterval(store.interval)
-  clearInterval(store.resumeInterval)
   timerElement.find('.minutes').html(store.instantMinutes)
   timerElement.find('.seconds').html(store.instantSeconds)
+  console.log('pause', store.instantMinutes)
   buttonElement.find('.pause-button').hide()
   buttonElement.find('.resume-button').show()
 }
