@@ -76,7 +76,6 @@ const onPause = (event) => {
   const buttonElement = $('[data-id =' + timerId + ']')
   timerElement.find('.minutes').html(store.instantMinutes)
   timerElement.find('.seconds').html(store.instantSeconds)
-  console.log('pause', store.instantMinutes)
   buttonElement.find('.pause-button').hide()
   buttonElement.find('.resume-button').show()
 }
