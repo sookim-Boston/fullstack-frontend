@@ -20,8 +20,8 @@ const onResume = (event) => {
       if (minutes < 10) {
         minutes = `0${minutes}`
       }
-      store.instantMinutes = minutes
-      store.instantSeconds = displaySeconds
+      store.instantMinutes = parseInt(minutes)
+      store.instantSeconds = parseInt(displaySeconds)
       timerElement.find('.minutes').html(minutes)
       timerElement.find('.seconds').html(displaySeconds)
     }

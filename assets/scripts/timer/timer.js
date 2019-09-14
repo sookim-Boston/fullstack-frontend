@@ -30,8 +30,8 @@ const onStart = function (event) {
       // display seconds and minutes
       timerElement.find('.minutes').html(minutes)
       timerElement.find('.seconds').html(displaySeconds)
-      store.instantMinutes = minutes
-      store.instantSeconds = displaySeconds
+      store.instantMinutes = parseInt(minutes)
+      store.instantSeconds = parseInt(displaySeconds)
     }
   }, 1000)
 }
