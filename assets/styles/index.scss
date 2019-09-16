@@ -1,5 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
+$button-font-color: $fff;
+
 .container {
   background: #333;
   border: 1px solid #333;
@@ -24,7 +26,7 @@
 .delete-button {
   background: #f2160a;
   border-radius: 5px;
-  color: white;
+  color: $button-font-color;
   font-size: 16px;
   height: 39px;
   margin: 10px auto;
@@ -35,7 +37,7 @@
 .start-button {
   background: #4da6ff;
   border-radius: 5px;
-  color: white;
+  color: $button-font-color;
   font-size: 16px;
   height: 39px;
   margin: 10px auto;
@@ -46,7 +48,7 @@
 .reset-button {
   background: #14ee00;
   border-radius: 5px;
-  color: white;
+  color: $button-font-color;
   font-size: 16px;
   height: 39px;
   margin: 10px auto;
@@ -57,7 +59,7 @@
 .resume-button {
   background: #b40af2;
   border-radius: 5px;
-  color: white;
+  color: $button-font-color;
   font-size: 16px;
   height: 39px;
   margin: 10px auto;
@@ -68,7 +70,7 @@
 .pause-button {
   background: #eb800e;
   border-radius: 5px;
-  color: white;
+  color: $button-font-color;
   font-size: 16px;
   height: 39px;
   margin: 10px auto;
