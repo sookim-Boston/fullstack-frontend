@@ -51,4 +51,5 @@ As a user, I should be able to change name and length of my timer
 As a user, I should be able to delete my timer
 
 Wireframes
+
 <img src=https://i.imgur.com/e2LROMm.jpg>
