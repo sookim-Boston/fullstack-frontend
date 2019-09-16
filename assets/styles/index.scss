@@ -1,89 +1,86 @@
 @import '~bootstrap/scss/bootstrap';
+
 .container {
-  border:1px solid #333;
-  border-radius :20px;
-  width:400px;
-  margin:20px auto;
-  padding:20px;
-  text-align:center;
-  background : #333;
+  background: #333;
+  border: 1px solid #333;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  width: 400px;
 }
 
 .pomodoro-timer {
-  color:#14ee00;
-  font-size:50px;
-  margin:10px auto;
-  border : 5px solid #14ee00;
-  border-radius:50%;
-  width:200px;
-  height:200px;
-  overflow:hidden;
-  position:relative;
+  border: 5px solid #14ee00;
+  border-radius: 50%;
+  color: #14ee00;
+  font-size: 50px;
+  height: 200px;
+  margin: 10px auto;
+  overflow: hidden;
+  position: relative;
+  width: 200px;
+}
+
+.delete-button {
+  background: #f2160a;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  height: 39px;
+  margin: 10px auto;
+  padding: 5px;
+  width: 80px;
 }
 
 .start-button {
- background:#4da6ff;
- padding:5px;
- width:80px;
- margin:10px auto;
- font-size:16px;
- color: white;
- height : 39px;
- border-radius : 5px;
+  background: #4da6ff;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  height: 39px;
+  margin: 10px auto;
+  padding: 5px;
+  width: 80px;
 }
 
 .reset-button {
- background:#14ee00;
- padding:5px;
- width:80px;
- margin:10px auto;
- font-size:16px;
- color: white;
- height : 39px;
- border-radius : 5px;
- position:relative;
-}
-.delete-button {
-  background:#f2160a;
-  padding:5px;
-  width:80px;
-  margin:10px auto;
-  font-size:16px;
+  background: #14ee00;
+  border-radius: 5px;
   color: white;
-  height : 39px;
-  border-radius : 5px;
-  position:relative;
+  font-size: 16px;
+  height: 39px;
+  margin: 10px auto;
+  padding: 5px;
+  width: 80px;
 }
+
 .resume-button {
-  background:#b40af2;
-  padding:5px;
-  width:80px;
-  margin:10px auto;
-  font-size:16px;
+  background: #b40af2;
+  border-radius: 5px;
   color: white;
-  height : 39px;
-  border-radius : 5px;
-  position:relative;
+  font-size: 16px;
+  height: 39px;
+  margin: 10px auto;
+  padding: 5px;
+  width: 80px;
 }
+
 .pause-button {
-  background:#eb800e;
-  padding:5px;
-  width:80px;
-  margin:10px auto;
-  font-size:16px;
+  background: #eb800e;
+  border-radius: 5px;
   color: white;
-  height : 39px;
-  border-radius : 5px;
-  position:relative;
-
+  font-size: 16px;
+  height: 39px;
+  margin: 10px auto;
+  padding: 5px;
+  width: 80px;
 }
+
 .time {
-  margin-top:70px;
-  z-index : 1;
-  position:relative;
+  margin-top: 70px;
+  position: relative;
 }
 
-.inTimer,
 .task {
   color: white;
 }

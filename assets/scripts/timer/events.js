@@ -18,11 +18,11 @@ const onCreate = function (event) {
   clearInterval(store.resumeInterval)
   clearInterval(store.interval)
   store.timer = data
-  if (data.timer.seconds >= 60) {
-    $('#message3').html('You can only go up to 59 seconds!')
+  if (data.timer.seconds >= 60 || data.timer.seconds < 0) {
+    $('#message3').html('You can only go from 0 to 59 seconds!')
     $('form').trigger('reset')
-  } else if (data.timer.minutes >= 100) {
-    $('#message3').html('You can only go up to 99 minutes!')
+  } else if (data.timer.minutes >= 100 || data.timer.minutes < 0) {
+    $('#message3').html('You can only go from 0 to 99 minutes!')
     $('form').trigger('reset')
   } else if (isNaN(data.timer.minutes) === true || isNaN(data.timer.seconds) === true) {
     $('#message3').html('You can only put numbers')
