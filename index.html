@@ -12,69 +12,101 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>WELCOME TO POMODORO</h1>
-      <h4>Enhance your productivity</h4>
-      <div id="message"></div>
-      <div id ="hideOnceSignIn">
-        <div class='sign-up'>
-          <form id='sign-up' class='border'>
+      <div id ="hide-once-sign-in" class="hide-once-sign-in">
+        <h1 class="title">   POMODORO   <img src="/image/timer.png" src="timer.png" alt="tomato kitchen timer" style="width:60px;height:60px;"> </h1>
+        <div id="sign-out-message"></div>
+        <div id='sign-in-form-message'></div>
+          <form id='sign-in-form'>
             <fieldset>
-              <legend>Sign up</legend>
-              <input type="text" name="credentials[email]" placeholder="Email">
-              <input type="password" name="credentials[password]" placeholder="Password">
-              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-              <input type= "submit" value="Sign up">
-            </fieldset>
-          </form>
-        </div>
-        <div id='message2'></div>
-        <div class='sign-in'>
-          <form id='sign-in' class= 'border'>
-            <fieldset>
-              <legend>Sign in</legend>
               <input type="text" name="credentials[email]" placeholder="Email">
               <input type="password" name="credentials[password]" placeholder="Password">
               <input type="submit" value="Sign in">
             </fieldset>
           </form>
-      </div>
-    </div>
-      <div id= "hideBeforeSignIn">
-        <div id ='signed-in-user'></div>
-        <div id="messageChangePW"></div>
-        <div class="pos-f-t">
-          <div class="collapse" id="navbarToggleExternalContent">
-            <div class="background">
-              <form id='sign-out' class='sign-out' class='border'>
-                <fieldset>
-                  <input type="submit" value="Sign out">
-                </fieldset>
-              </form>
-              <form class="change-password" id='change-password'>
-                <input type="password" name="passwords[old]" placeholder="Current Password">
-                <input type="password" name="passwords[new]" placeholder="New Password">
-                <input type="submit" value="Change Password">
-              </form>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#secondModal">
+          Not a member yet? Join now!
+          </button>
+            <!-- Modal sign up -->
+            <div class="modal fade" id="secondModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" id="exampleModalLabel">
+                    <h4> Sign Up </h4>
+                  </div>
+                  <div id="message"></div>
+                    <form id='sign-up' class= 'border'>
+                      <fieldset>
+                        <input type="text" name="credentials[email]" placeholder="Email">
+                        <input type="password" name="credentials[password]" placeholder="Password">
+                        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                        <input type= "submit" value="Sign up">
+                      </fieldset>
+                    </form>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-          <nav class="navbar navbar-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+      <div id= "hide-before-sign-in">
+          <div class='logo'>POMODORO  <img src="/image/timer.png" src="timer.png" alt="tomato kitchen timer" style="width:30px;height:30px;">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> &#9776;
             </button>
-          </nav>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" data-toggle="modal" data-target="#changepwModal" href="#">Change Password</a>
+              <a class="dropdown-item" id='sign-out' href="#">
+                <form id='sign-out' class='sign-out'>
+                  <fieldset>
+                    <input type="submit" value="Sign out">
+                  </fieldset>
+                </form>
+              </a>
+            </div>
+          </div>
+          </div>
+
+      <!-- change password modal -->
+        <div class="modal" id="changepwModal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="reset-pw-div">
+                  <form id="change-password">
+                    <input class="form-control" type="password" name="passwords[old]" placeholder="old password" autocomplete="off">
+                    <br>
+                    <input class="form-control" type="password" name="passwords[new]" placeholder="new password" autocomplete="off">
+                    <button type="submit" id="change-password-button" class="change-password">change password</button>
+                    <div id="change-pw-message"></div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div id='message3'></div>
-        <form id = 'timer'>
-        <div>
-          <fieldset>
-            <input type="text" name="timer[task_name]" placeholder="Enter Task Name">
-            <input type="text" name="timer[minutes]" placeholder="minutes" class='create-minutes'>
-            <input type="text" name="timer[seconds]" placeholder="seconds" class='create-seconds'>
-            <input type="submit" placeholder="Create Timer" value="Create Timer">
-          </fieldset>
-        </div>
-      </form>
-    <div id='pomodoro-app' class='pomodoro-app'></div>
-    <footer>Created by Soo K.</footer>
+        <div id ='signed-in-user'></div>
+          <div id='message3'></div>
+          <form id = 'timer'>
+          <div>
+            <fieldset class='timer-create'>
+              <input type="text" name="timer[task_name]" placeholder="Enter Task Name">
+              <input type="text" name="timer[minutes]" placeholder="minutes" class='create-minutes'>
+              <input type="text" name="timer[seconds]" placeholder="seconds" class='create-seconds'>
+              <input type="submit" placeholder="Create Timer" value="Create Timer">
+            </fieldset>
+          </div>
+        </form>
+      <div id='pomodoro-app' class='pomodoro-app'></div>
+    </div>
+      <footer>Created by Soo K.</footer>
     </body>
 </html>

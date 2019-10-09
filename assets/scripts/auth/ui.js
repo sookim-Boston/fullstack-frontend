@@ -32,8 +32,8 @@ const signInSuccess = function (data) {
     .text('Succesfully signed in! User is: ' + data.user.email)
     .addClass('success')
   store.user = data.user
-  $('#hideBeforeSignIn').show()
-  $('#hideOnceSignIn').hide()
+  $('#hide-before-sign-in').show()
+  $('#hide-once-sign-in').hide()
   $('form').trigger('reset')
   setTimeout(() => {
     $('#signed-in-user')
@@ -41,35 +41,36 @@ const signInSuccess = function (data) {
       .removeClass('success')
   }, 3000)
   $('.dropdown').show()
+  $('#firstModal').modal('hide')
 }
 
 const signInFailure = function () {
-  $('#message').text('Error on sign in')
-  $('#message').addClass('failure')
+  $('#sign-in-form-message').text('Error on sign in')
+  $('#sign-in-form-message').addClass('failure')
   $('form').trigger('reset')
   setTimeout(() => {
-    $('#message')
+    $('#sign-in-form-message')
       .text('')
       .removeClass('failure')
   }, 3000)
 }
 
 const changePasswordSuccess = function (data) {
-  $('#messageChangePW').text('Successsfully changed password')
-  $('#messageChangePW').addClass('success')
+  $('#change-pw-message').text('Successsfully changed password')
+  $('#change-pw-message').addClass('success')
   $('form').trigger('reset')
   setTimeout(() => {
-    $('#messageChangePW')
+    $('#change-pw-message')
       .text('')
       .removeClass('success')
   }, 3000)
 }
 const changePasswordFailure = function (data) {
-  $('#messageChangePW').text('Error Occured. Please try again.')
-  $('#messageChangePW').addClass('failure')
+  $('#change-pw-message').text('Error Occured. Please try again.')
+  $('#change-pw-message').addClass('failure')
   $('form').trigger('reset')
   setTimeout(() => {
-    $('#messageChangePW')
+    $('#change-pw-message')
       .text('')
       .removeClass('failure')
   }, 3000)
@@ -79,20 +80,14 @@ const signOutSuccess = function () {
   store.user = null
   store.winner = null
   $('#signed-in-user').text('')
-  $('#message').text('Signed out successfully')
-  $('#message').addClass('success')
-  $('#hideBeforeSignIn').hide()
-  $('#hideOnceSignIn').show()
-  $('#gameboard').hide()
-  $('#player').text(``)
-  $('#gameover').text('')
-  $('#anotherBox').text('')
+  $('#sign-out-message').text('Signed out successfully')
+  $('#sign-out-message').addClass('success')
+  $('#hide-before-sign-in').hide()
+  $('#hide-once-sign-in').show()
   $('#message3').text('')
-  $('#moves').text(``)
-  $('#numberOfPlays').text(``)
   $('form').trigger('reset')
   setTimeout(() => {
-    $('#message')
+    $('#sign-out-message')
       .text('')
       .removeClass('success')
   }, 3000)
@@ -101,11 +96,11 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function () {
-  $('#message').text('Error Occured')
-  $('#message').addClass('failure')
+  $('#sign-out-message').text('Error Occured')
+  $('#sign-out-message').addClass('failure')
   $('form').trigger('reset')
   setTimeout(() => {
-    $('#message')
+    $('#sign-out-message')
       .text('')
       .removeClass('failure')
   }, 3000)

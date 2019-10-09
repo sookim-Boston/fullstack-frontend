@@ -1,10 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'font';
 
 $button-font-color: #fff;
+$pause-button-bg: #eb800e;
+$resume-button-bg: #b40af2;
+$reset-button-bg: #14ee00;
+$start-button-bg: #4da6ff;
+$delete-button-bg: #f2160a;
+$container-color: #333;
 
 .container {
-  background: #333;
-  border: 1px solid #333;
+  background: $container-color;
+  border: 1px solid $container-color;
   margin: 20px auto;
   padding: 20px;
   text-align: center;
@@ -12,9 +19,9 @@ $button-font-color: #fff;
 }
 
 .pomodoro-timer {
-  border: 5px solid #14ee00;
+  border: 5px solid $reset-button-bg;
   border-radius: 50%;
-  color: #14ee00;
+  color: $reset-button-bg;
   font-size: 50px;
   height: 200px;
   margin: 10px auto;
@@ -23,8 +30,15 @@ $button-font-color: #fff;
   width: 200px;
 }
 
+.btn-primary {
+  background-color: $button-font-color;
+  border-color: $button-font-color;
+  color: #007bff;
+
+}
+
 .delete-button {
-  background: #f2160a;
+  background: $delete-button-bg;
   border-radius: 5px;
   color: $button-font-color;
   font-size: 16px;
@@ -35,7 +49,7 @@ $button-font-color: #fff;
 }
 
 .start-button {
-  background: #4da6ff;
+  background: $start-button-bg;
   border-radius: 5px;
   color: $button-font-color;
   font-size: 16px;
@@ -46,7 +60,7 @@ $button-font-color: #fff;
 }
 
 .reset-button {
-  background: #14ee00;
+  background: $reset-button-bg;
   border-radius: 5px;
   color: $button-font-color;
   font-size: 16px;
@@ -57,7 +71,7 @@ $button-font-color: #fff;
 }
 
 .resume-button {
-  background: #b40af2;
+  background: $resume-button-bg;
   border-radius: 5px;
   color: $button-font-color;
   font-size: 16px;
@@ -68,7 +82,7 @@ $button-font-color: #fff;
 }
 
 .pause-button {
-  background: #eb800e;
+  background: $pause-button-bg;
   border-radius: 5px;
   color: $button-font-color;
   font-size: 16px;
@@ -83,6 +97,78 @@ $button-font-color: #fff;
   position: relative;
 }
 
+
+.title {
+  font-family: 'Black Ops One', sans-serif;
+  padding: 15px;
+}
+
+
+h3 {
+  font-family: 'Black Ops One', sans-serif;
+  padding: 15px;
+  text-align: left;
+}
+
+.logo {
+  font-family: 'Black Ops One', sans-serif;
+  padding: 15px;
+  display: block;
+  justify-content: flex-start;
+  font-size: 25px;
+}
+
+.dropdown {
+  font-family: 'Livvic', sans-serif;
+  .dropdown-toggle {
+    right: 0;
+    top: auto 0;
+  }
+}
+
 .task {
-  color: white;
+  color: $button-font-color;
+}
+
+.hide-once-sign-in {
+  margin: 15%;
+  text-align: center;
+}
+
+fieldset {
+  display: inline-flex;
+  text-align: -webkit-center;
+  text-align-last: center;
+}
+
+input {
+  border-radius: 5px;
+  margin: 15px;
+  padding: 7px;
+}
+
+
+// footer {
+//   background-position: 0% 0%;
+//   bottom: 0;
+//   font-family: 'Livvic', sans-serif;
+//   font-size: 13px;
+//   font-weight: bold;
+//   left: 0;
+//   overflow: hidden;
+//   padding-right: 10px;
+//   padding-top: 10px;
+//   position: relative;
+// }
+
+.dropdown {
+ text-align-last: right;
+}
+
+.dropdown-item {
+  border: grey;
+}
+.timer-create {
+  display: block;
+
 }
