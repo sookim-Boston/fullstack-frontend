@@ -33,11 +33,11 @@ $container-color: #333;
 .container {
   background: $container-color;
   border: 1px solid $container-color;
+  font-family: 'Play', sans-serif;
   margin: 20px auto;
   padding: 20px;
   text-align: center;
   width: 400px;
-  font-family: 'Play', sans-serif;
 }
 
 .pomodoro-timer {
@@ -56,7 +56,6 @@ $container-color: #333;
   background-color: $button-font-color;
   border-color: $button-font-color;
   color: #007bff;
-
 }
 
 .delete-button {
@@ -103,7 +102,7 @@ $container-color: #333;
   width: 80px;
 }
 
-#signed-in-user {
+.signed-in-user {
   text-align: center;
 }
 
@@ -118,8 +117,8 @@ $container-color: #333;
   width: 80px;
 }
 
-#choose-task-button {
-  align-items: left;
+.choose-task-button {
+  align-items: center;
   font-family: 'Play', sans-serif;
   padding: 20px;
 }
@@ -140,6 +139,7 @@ $container-color: #333;
 }
 
 .dropdown-item {
+  border: grey;
   border-color: black;
 }
 
@@ -170,6 +170,7 @@ h3 {
 
 .dropdown {
   font-family: 'Livvic', sans-serif;
+  text-align-last: right;
   .dropdown-toggle {
     right: 0;
     top: auto 0;
@@ -197,14 +198,6 @@ input {
   padding: 7px;
 }
 
-
-.dropdown {
- text-align-last: right;
-}
-
-.dropdown-item {
-  border: grey;
-}
 .timer-create {
   display: block;
 
@@ -220,11 +213,11 @@ header {
 }
 
 footer {
-  position: fixed;
-  width: 100%;
   bottom: 0;
-  left: 0;
-  height: 20px;
   color: black;
   font-family: 'Play', sans-serif;
+  height: 20px;
+  left: 0;
+  position: fixed;
+  width: 100%;
 }
