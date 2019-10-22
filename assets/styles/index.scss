@@ -7,7 +7,28 @@ $resume-button-bg: #b40af2;
 $reset-button-bg: #14ee00;
 $start-button-bg: #4da6ff;
 $delete-button-bg: #f2160a;
+$update-button-bg: #ffd700;
 $container-color: #333;
+
+.timer-create-message {
+  font-family: 'Play', sans-serif;
+  font-size: 17px;
+  text-align: center;
+}
+
+.delete-message {
+  font-family: 'Play', sans-serif;
+  font-size: 15px;
+  text-align: center;
+}
+
+.dropdown-menu {
+  font-family: 'Play', sans-serif;
+}
+
+.modal {
+  font-family: 'Play', sans-serif;
+}
 
 .container {
   background: $container-color;
@@ -16,6 +37,7 @@ $container-color: #333;
   padding: 20px;
   text-align: center;
   width: 400px;
+  font-family: 'Play', sans-serif;
 }
 
 .pomodoro-timer {
@@ -81,6 +103,31 @@ $container-color: #333;
   width: 80px;
 }
 
+#signed-in-user {
+  text-align: center;
+}
+
+.update-button {
+  background: $update-button-bg;
+  border-radius: 5px;
+  color: $button-font-color;
+  font-size: 16px;
+  height: 39px;
+  margin: 10px auto;
+  padding: 5px;
+  width: 80px;
+}
+
+#choose-task-button {
+  align-items: left;
+  font-family: 'Play', sans-serif;
+  padding: 20px;
+}
+
+.task-name {
+  align-items: center;
+}
+
 .pause-button {
   background: $pause-button-bg;
   border-radius: 5px;
@@ -92,8 +139,12 @@ $container-color: #333;
   width: 80px;
 }
 
+.dropdown-item {
+  border-color: black;
+}
+
 .time {
-  margin-top: 70px;
+  margin-top: 80px;
   position: relative;
 }
 
@@ -106,7 +157,6 @@ $container-color: #333;
 
 h3 {
   font-family: 'Black Ops One', sans-serif;
-  padding: 15px;
   text-align: left;
 }
 
@@ -148,19 +198,6 @@ input {
 }
 
 
-// footer {
-//   background-position: 0% 0%;
-//   bottom: 0;
-//   font-family: 'Livvic', sans-serif;
-//   font-size: 13px;
-//   font-weight: bold;
-//   left: 0;
-//   overflow: hidden;
-//   padding-right: 10px;
-//   padding-top: 10px;
-//   position: relative;
-// }
-
 .dropdown {
  text-align-last: right;
 }
@@ -171,4 +208,23 @@ input {
 .timer-create {
   display: block;
 
+}
+
+body {
+  margin: 0px;
+  line-height: 20px;
+}
+
+header {
+  height: 20px;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 20px;
+  color: black;
+  font-family: 'Play', sans-serif;
 }
