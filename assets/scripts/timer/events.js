@@ -80,6 +80,7 @@ const onUpdate = (event) => {
     $('form').trigger('reset')
   } else {
     api.updateTimer(data, updateId)
+      .then(() => onGetTimers(event))
       .then(() => onGetTimer(event))
       .catch(ui.onFailure)
   }
