@@ -1,45 +1,59 @@
 // const store = require('./../store')
-const showTimerTemplate = require('../templates/timers.handlebars')
+// const showTimerTemplate = require('../templates/timers.handlebars')
+const showTimerTemplate = require('../templates/timer.handlebars')
 const store = require('./../store')
+const showTaskTemplate = require('../templates/task.handlebars')
+const taskDropdownTemplate = require(
+  '../templates/dropdown.handlebars'
+)
 
 const getTimersSuccess = function (data) {
-  const showTimers = showTimerTemplate({timers: data.timers})
+  const showTask = showTaskTemplate({timers: data.timers})
+  // const showTimers = showTimerTemplate({timers: data.timers})
+  // console.log(showTimers)
+  const dropdownTask = taskDropdownTemplate({timers: data.timers})
+  // show a list of tasks
+  $('.task-dropdown').html(dropdownTask)
+  $('.task-body').html(showTask)
   store.timers = {timers: data.timers}
-  $('#pomodoro-app').html(showTimers)
-  $('form').trigger('reset')
+  // $('#pomodoro-app').html(showTimers)
+}
+
+const getTimerSuccess = function (data) {
+  console.log(data)
+  const showTimer = showTimerTemplate({timer: data.timer})
+  $('#pomodoro-app').html(showTimer)
   $('.resume-button').hide()
   $('.pause-button').attr('disabled', 'disabled')
   $('.reset-button').attr('disabled', 'disabled')
+  $('form').trigger('reset')
 }
 
 const onCreateSuccess = function () {
-  $('#message3').text('timer created!')
-  $('.pause-button').show()
-    .attr('disabled', 'disabled')
-  $('.resume-button').hide()
+  $('#timer-create-message').text('task created')
   setTimeout(() => {
-    $('#message3')
+    $('#timer-create-message')
       .text('')
   }, 3000)
 }
 
 const onDeleteSuccess = function () {
-  $('#message3').text('timer deleted!')
+  $('.delete-message').text('task deleted successfully')
   setTimeout(() => {
-    $('#message3')
+    $('.delete-message')
       .text('')
   }, 3000)
 }
 
 const onUpdateSuccess = function () {
-  $('#message3').text('timer updated!')
+  $('#message3').text('task updated!')
   setTimeout(() => {
     $('#message3')
       .text('')
   }, 3000)
 }
 const onFailure = function () {
-  $('#message3').text('Error occured')
+  $('signed-in-user').text('Error occured')
 }
 
 module.exports = {
@@ -47,5 +61,6 @@ module.exports = {
   onFailure,
   onCreateSuccess,
   onDeleteSuccess,
-  onUpdateSuccess
+  onUpdateSuccess,
+  getTimerSuccess
 }

@@ -14,7 +14,8 @@ $(() => {
   // your JS code goes here
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
-  $('#sign-out').on('submit', authEvents.onSignOut)
+  $('#sign-out').on('click', authEvents.onSignOut)
+  // $('#sign-out').on('click', console.log('here'))
   $('#sign-out').on('click', () => {
     $('.collapse').collapse('hide')
   })

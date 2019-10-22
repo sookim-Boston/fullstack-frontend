@@ -28,18 +28,18 @@ const signUpFailure = function () {
   // console.error('signUpFailure ran')
 }
 const signInSuccess = function (data) {
-  $('#signed-in-user')
-    .text('Succesfully signed in! User is: ' + data.user.email)
-    .addClass('success')
+  // $('#signed-in-user')
+  //   .text('Succesfully signed in! User is: ' + data.user.email)
+  //   .addClass('success')
   store.user = data.user
   $('#hide-before-sign-in').show()
   $('#hide-once-sign-in').hide()
   $('form').trigger('reset')
-  setTimeout(() => {
-    $('#signed-in-user')
-      .text('')
-      .removeClass('success')
-  }, 3000)
+  // setTimeout(() => {
+  //   $('#signed-in-user')
+  //     .text('')
+  //     .removeClass('success')
+  // }, 3000)
   $('.dropdown').show()
   $('#firstModal').modal('hide')
 }
@@ -84,7 +84,9 @@ const signOutSuccess = function () {
   $('#sign-out-message').addClass('success')
   $('#hide-before-sign-in').hide()
   $('#hide-once-sign-in').show()
+  $('.task-dropdown').get(0).selectedIndex = 0
   $('#message3').text('')
+  $('.task-dropdown-button').text('Choose your task')
   $('form').trigger('reset')
   setTimeout(() => {
     $('#sign-out-message')

@@ -18,6 +18,7 @@ const onCreate = function (event) {
   clearInterval(store.resumeInterval)
   clearInterval(store.interval)
   store.timer = data
+  console.log(data)
   if (data.timer.seconds >= 60 || data.timer.seconds < 0) {
     $('#message3').html('You can only go from 0 to 59 seconds!')
     $('form').trigger('reset')
@@ -43,6 +44,8 @@ const onDelete = (event) => {
   clearInterval(store.resumeInterval)
   const id = $(event.target).data('id')
   api.deleteTimer(id)
+    .then($('#pomodoro-app').html(''))
+    .then($('.task-dropdown-button').text('Choose your task'))
     .then(() => onGetTimers(event))
     .then(ui.onDeleteSuccess)
     .catch(ui.onFailure)
@@ -77,23 +80,43 @@ const onUpdate = (event) => {
     $('form').trigger('reset')
   } else {
     api.updateTimer(data, updateId)
-      .then(() => onGetTimers(event))
+      .then(() => onGetTimer(event))
       .catch(ui.onFailure)
   }
 }
 
+const onGetTimer = (event) => {
+  event.preventDefault()
+  const id = $(event.target).data('id')
+  console.log(id)
+  api.getTimer(id)
+    .then(ui.getTimerSuccess)
+    .catch(ui.onFailure)
+}
+
 const addHandlers = () => {
   $('#pomodoro-app').on('click', '.delete-button', onDelete)
-  $('#pomodoro-app').on('submit', '.updateTimer', onUpdate)
   $('#pomodoro-app').on('click', '.start-button', timer.onStart)
   $('#pomodoro-app').on('click', '.reset-button', button.onReset)
   $('#pomodoro-app').on('click', '.pause-button', button.onPause)
   $('#pomodoro-app').on('click', '.resume-button', button.onResume)
+  $('#updateTimer').on('submit', onUpdate)
+  $('#pomodoro-app').on('click', '.update-button', function () {
+    const timerId = $(this).data('id')
+    $('#updateTimer').data('id', timerId)
+  })
+  $('#get-task').on('click', onGetTimers)
+  $('.task-dropdown').on('click', 'a', onGetTimer)
+  $('.task-dropdown').on('click', 'a', function () {
+    $('.task-dropdown-button').text($(this).text())
+  })
 }
 
 module.exports = {
   onCreate,
   onDelete,
   addHandlers,
-  onGetTimers
+  onGetTimers,
+  onUpdate,
+  onGetTimer
 }
