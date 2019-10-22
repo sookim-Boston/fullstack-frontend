@@ -1,13 +1,5 @@
-{{#each timers as |timer|}}
   <section data-id="{{timer.id}}">
       <div class="container">
-        <div class="task">
-          {{#if timer.task_name}}
-          {{timer.task_name}}
-          {{else}}
-          untitled
-          {{/if}}
-          </div>
         <div id={{timer.id}} class="pomodoro-timer">
           <div class="time">
             <span class="minutes">
@@ -41,5 +33,3 @@
         <button data-id='{{timer.id}}' class='update-button' data-toggle='modal' data-target="#updateModal">Update</button>
       </div>
   </section>
-
-{{/each}}

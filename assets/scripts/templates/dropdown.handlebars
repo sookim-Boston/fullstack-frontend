@@ -1,0 +1,9 @@
+{{#each timers as |timer|}}
+    <a class="bringtask text-info dropdown-item text-secondary" href="#" data-id="{{timer.id}}">
+        {{#if timer.task_name}}
+        {{timer.task_name}}
+        {{else}}
+        untitled
+        {{/if}}
+    </a>
+{{/each}}

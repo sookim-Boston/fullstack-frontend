@@ -1,0 +1,21 @@
+{{#each timers as |timer|}}
+  <section data-id="{{timer.id}}">
+      <li class="task-list row">
+        <div class="col" style="text-align: center;">
+          {{#if timer.task_name}}
+          {{timer.task_name}}
+          {{else}}
+          untitled
+          {{/if}}
+        </div>
+        <div class="col" style="text-align: center;">
+          {{#if timer.uses}}
+          {{timer.uses}}
+          {{else}}
+          00 minutes
+          {{/if}}
+        </div>
+      </li>
+  </section>
+
+{{/each}}
