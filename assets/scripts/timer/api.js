@@ -23,6 +23,16 @@ const getTimers = function () {
   })
 }
 
+const getTimer = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/timers/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const deleteTimer = function (id) {
   return $.ajax({
     url: config.apiUrl + '/timers/' + id,
@@ -47,5 +57,6 @@ module.exports = {
   create,
   getTimers,
   deleteTimer,
-  updateTimer
+  updateTimer,
+  getTimer
 }
