@@ -9,14 +9,11 @@ const taskDropdownTemplate = require(
 
 const getTimersSuccess = function (data) {
   const showTask = showTaskTemplate({timers: data.timers})
-  // const showTimers = showTimerTemplate({timers: data.timers})
-  // console.log(showTimers)
   const dropdownTask = taskDropdownTemplate({timers: data.timers})
   // show a list of tasks
   $('.task-dropdown').html(dropdownTask)
   $('.task-body').html(showTask)
   store.timers = {timers: data.timers}
-  // $('#pomodoro-app').html(showTimers)
 }
 
 const getTimerSuccess = function (data) {
@@ -35,6 +32,7 @@ const onCreateSuccess = function () {
     $('#timer-create-message')
       .text('')
   }, 3000)
+  $('form').trigger('reset')
 }
 
 const onDeleteSuccess = function () {
