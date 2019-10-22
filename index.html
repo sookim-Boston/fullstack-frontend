@@ -69,11 +69,12 @@
        </div>
     </div>
 
-      <!-- messages -->
-      <div id ='signed-in-user'></div>
 
-      <div id="choose-task-button" class= "dropdown-menu-left">
-        <div>You are currently working on</div>
+    <!-- messages -->
+    <div id ='signed-in-user' class='signed-in-user'></div>
+
+    <div id="choose-task-button" class="choose-task-button">
+      <div>You are currently working on</div>
         <!-- dropdown for tasks  -->
        <button class="btn btn-secondary dropdown-toggle btn-light text-info task-dropdown-button text-secondary" type="button" id="taskDownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Choose your task
@@ -81,40 +82,40 @@
        <!-- dropdown menu for options -->
        <div class="dropdown-menu task-dropdown dropdown-menu-left border-info" aria-labelledby="taskDownButton">
        </div>
-      </div>
+    </div>
 
-      <!-- timer goes here -->
-      <div id='pomodoro-app' class='pomodoro-app'></div>
-      <div class='delete-message'></div>
+    <!-- timer goes here -->
+    <div id='pomodoro-app' class='pomodoro-app'></div>
+    <div class='delete-message'></div>
 
 
-      <!-- change password modal -->
-        <div class="modal" id="changepwModal" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Change Password</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+    <!-- change password modal -->
+      <div class="modal" id="changepwModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Change Password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="reset-pw-div">
+                <form id="change-password">
+                  <input class="form-control" type="password" name="passwords[old]" placeholder="old password" autocomplete="off">
+                  <br>
+                  <input class="form-control" type="password" name="passwords[new]" placeholder="new password" autocomplete="off">
+                  <input type="submit" id="change-password-button" class="change-password" placeholder="change a password" value="submit">
+                  <div id="change-pw-message"></div>
+                </form>
               </div>
-              <div class="modal-body">
-                <div class="reset-pw-div">
-                  <form id="change-password">
-                    <input class="form-control" type="password" name="passwords[old]" placeholder="old password" autocomplete="off">
-                    <br>
-                    <input class="form-control" type="password" name="passwords[new]" placeholder="new password" autocomplete="off">
-                    <input type="submit" id="change-password-button" class="change-password" placeholder="change a password" value="submit">
-                    <div id="change-pw-message"></div>
-                  </form>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
-              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
             </div>
           </div>
         </div>
+      </div>
 
         <!-- create a task modal -->
           <div class="modal" id="create-task" tabindex="-1" role="dialog">
@@ -131,6 +132,7 @@
                         <div>for how long? (e.g. 25 minutes)</div>
                         <input type="text" name="timer[minutes]" placeholder="minutes" class='create-minutes'>
                         <input type="text" name="timer[seconds]" placeholder="seconds" class='create-seconds'>
+                        <input type="hidden" name="timer[uses]">
                         <input type="submit" placeholder="create a task" value="Create a task">
                       </fieldset>
                   </form>
