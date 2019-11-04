@@ -1,7 +1,7 @@
 {{#each timers as |timer|}}
   <section data-id="{{timer.id}}">
       <li class="task-list row">
-        <div class="col" style="text-align: center; font-size: 18px; margin-left:20px">
+        <div class="col taskList" style="text-align: center; font-size: 18px; margin-left:20px">
           {{#if timer.task_name}}
           {{timer.task_name}}
           {{else}}
@@ -12,7 +12,7 @@
           {{#if timer.uses}}
           {{timer.uses}}
           {{else}}
-          00 minutes
+
           {{/if}}
         </div>
       </li>
