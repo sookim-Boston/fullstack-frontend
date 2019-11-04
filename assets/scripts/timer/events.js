@@ -18,17 +18,20 @@ const onCreate = function (event) {
   clearInterval(store.resumeInterval)
   clearInterval(store.interval)
   store.timer = data
-  if (data.timer.seconds >= 60 || data.timer.seconds < 0) {
-    $('#message3').html('You can only go from 0 to 59 seconds!')
+  if ((store.timers.timers.find(a => a['task_name'] === data.timer.task_name)) !== undefined) {
+    $('#timer-create-message').html('You already have that task on the list')
+    $('form').trigger('reset')
+  } else if (data.timer.seconds >= 60 || data.timer.seconds < 0) {
+    $('#timer-create-message').html('You can only go from 0 to 59 seconds!')
     $('form').trigger('reset')
   } else if (data.timer.minutes >= 100 || data.timer.minutes < 0) {
-    $('#message3').html('You can only go from 0 to 99 minutes!')
+    $('#timer-create-message').html('You can only go from 0 to 99 minutes!')
     $('form').trigger('reset')
   } else if (isNaN(data.timer.minutes) === true || isNaN(data.timer.seconds) === true) {
-    $('#message3').html('You can only put numbers')
+    $('#timer-create-message').html('You can only put numbers')
     $('form').trigger('reset')
   } else if ((data.timer.minutes).toString().length > 2 || (data.timer.seconds).toString().length > 2) {
-    $('#message3').html('Invalid Number!')
+    $('#timer-create-message').html('Invalid Number!')
     $('form').trigger('reset')
   } else {
     api.create(data)
