@@ -3,7 +3,6 @@ const config = require('./../config')
 const store = require('./../store')
 
 const create = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/timers',
     method: 'POST',

@@ -12,6 +12,7 @@ const onStart = function (event) {
   const newArray = (store.timers.timers).filter(obj => {
     return obj['id'] === timerId
   })
+  // parseInt(newArray[0]['uses'] += 1)
   // convert minutes into seconds and add to seconds
   let seconds = newArray[0]['minutes'] * 60 + newArray[0]['seconds']
   // if seconds is more than 0, it will run setInterval () every 1 milliseconds
@@ -26,6 +27,9 @@ const onStart = function (event) {
       }
       if (minutes < 10) {
         minutes = `0${minutes}`
+      }
+      if (minutes === 0 && displaySeconds === 1) {
+        $('.container').addClass('animated', 'bounce')
       }
       // display seconds and minutes
       timerElement.find('.minutes').html(minutes)

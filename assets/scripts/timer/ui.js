@@ -17,7 +17,6 @@ const getTimersSuccess = function (data) {
 }
 
 const getTimerSuccess = function (data) {
-  console.log(data)
   const showTimer = showTimerTemplate({timer: data.timer})
   $('#pomodoro-app').html(showTimer)
   $('.resume-button').hide()

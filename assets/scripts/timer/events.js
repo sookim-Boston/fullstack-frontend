@@ -18,7 +18,6 @@ const onCreate = function (event) {
   clearInterval(store.resumeInterval)
   clearInterval(store.interval)
   store.timer = data
-  console.log(data)
   if (data.timer.seconds >= 60 || data.timer.seconds < 0) {
     $('#message3').html('You can only go from 0 to 59 seconds!')
     $('form').trigger('reset')
@@ -89,7 +88,6 @@ const onUpdate = (event) => {
 const onGetTimer = (event) => {
   event.preventDefault()
   const id = $(event.target).data('id')
-  console.log(id)
   api.getTimer(id)
     .then(ui.getTimerSuccess)
     .catch(ui.onFailure)
