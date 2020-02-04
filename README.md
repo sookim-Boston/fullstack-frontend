@@ -10,7 +10,7 @@ Once the user signs up and signs in, they can start creating the timer with task
 ### Technologies used
 - HTML
 - SASS
-- javascript
+- JavaScript
 - jQuery
 - Ajax
 - CSS
@@ -36,9 +36,8 @@ Once the user signs up and signs in, they can start creating the timer with task
 
 ### Unsolved Problems
 Things that I am planning to work on:
-1. Creating pause button
-2. Styling
-3. Keeping track of number of times the timer has been used
+1. Creating 5min, 10min break buttons
+2. Keeping track of number of times the timer has been used
 
 ### Wireframes and User stories
 As a user, I should be able to sign up
