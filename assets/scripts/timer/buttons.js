@@ -2,12 +2,17 @@ const store = require('./../store')
 
 const onResume = (event) => {
   event.preventDefault()
+  // clear all the interval that has been stored
   clearInterval(store.interval)
+  // get the id of the timer
   const timerId = $(event.target).data('id')
   const timerElement = $('#' + timerId)
   const buttonElement = $('[data-id =' + timerId + ']')
+  // hide resume button once clicked
   buttonElement.find('.resume-button').hide()
+  // disable start button once resume is clicked
   $('.start-button').attr('disabled', 'disabled')
+  // turn all the minutes and seconds into seconds
   let seconds = parseInt(store.instantMinutes) * 60 + parseInt(store.instantSeconds)
   store.resumeInterval = setInterval(function () {
     if (seconds > 0) {
