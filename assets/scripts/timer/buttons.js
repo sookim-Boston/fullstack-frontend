@@ -39,7 +39,9 @@ const onReset = (event) => {
   event.preventDefault()
   clearInterval(store.interval)
   clearInterval(store.resumeInterval)
+  // show the pause button
   $('.pause-button').show()
+  // hide resume button and show the pause button instead
   $('.resume-button').hide()
   $('.pause-button').attr('disabled', 'disabled')
   $('.start-button').removeAttr('disabled')
@@ -52,17 +54,20 @@ const onReset = (event) => {
   // get the value of minutes and seconds from the data and set them as variables
   let seconds = newArray[0]['seconds']
   let minutes = newArray[0]['minutes']
-  // only reset when the number length is 1
+  // if the number length is 1, put 0 in front of it
   if (seconds !== null && seconds.toString().length === 1) {
     seconds = `0${seconds}`
     timerElement.find('.seconds').html(seconds)
+    // if there's no seconds, it is 00 (on the timer)
   } else if (seconds === null) {
     seconds = '00'
     timerElement.find('.seconds').html(seconds)
   }
+  // if the 'minutes' is a single digit, put 0 in front of the number
   if (minutes !== null && minutes.toString().length === 1) {
     minutes = `0${minutes}`
     timerElement.find('.minutes').html(minutes)
+    // if there's no minutes, it is 00 (on the timer)
   } else if (minutes === null) {
     minutes = '00'
     timerElement.find('.minutes').html(minutes)
@@ -75,6 +80,7 @@ const onPause = (event) => {
   event.preventDefault()
   clearInterval(store.interval)
   clearInterval(store.resumeInterval)
+  // start button is disabled
   $('.start-button').attr('disabled', 'disabled')
   const timerId = $(event.target).data('id')
   const timerElement = $('#' + timerId)
