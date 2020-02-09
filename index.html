@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>POMODORO</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <div id ="hide-once-sign-in" class="hide-once-sign-in">
+        <h1 class="title">   POMODORO   <img src="./public/image/timer.png" alt="tomato kitchen timer" style="width:60px;height:60px;"> </h1>
+        <div id="sign-out-message"></div>
+        <div id='sign-in-form-message'></div>
+          <form id='sign-in-form'>
+            <fieldset>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="submit" value="Sign in">
+            </fieldset>
+          </form>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#secondModal">
+          Not a member yet? Join now!
+          </button>
+        <div class='dummy-credential'>** If you are here just to see how this app works, sign in with these dummy credentials: </br>
+Username: explore@2 Password: 2</div>
+
+        <!-- Modal sign up -->
+            <div class="modal fade" id="secondModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" id="exampleModalLabel">
+                    <h4> Sign Up </h4>
+                  </div>
+                  <div id="message"></div>
+                    <form id='sign-up' class= 'border'>
+                      <fieldset>
+                        <input type="text" name="credentials[email]" placeholder="Email">
+                        <input type="password" name="credentials[password]" placeholder="Password">
+                        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                        <input type= "submit" value="Sign up">
+                      </fieldset>
+                    </form>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- what is pomodoro? -->
+              <div class="modal description" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">What is Pomodoro?</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>The Pomodoro technique is a time management method developed by Francesco Cirillo in the late 1980s. It is meant to boost your productivity by breaking down one task into intervals (usually 25 minutes). Once you sign up and sign in, you can start creating the timer with task name. You have an option to change your timer as needed. You can also remove the task by removing the timer. When you sign out, don't worry about losing your timer. We will save it for you. Hope this app helps you stay productive!
+                        <br/>
+                      p.s. make sure to stay focused on ONE task during each interval</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+      <!-- After sign in -->
+      <div id= "hide-before-sign-in">
+      <div class='logo'>POMODORO
+        <img src="./public/image/timer.png" alt="tomato kitchen timer" style="width:30px;height:30px;">
+        <div class="dropdown top-right">
+          <!-- dropdown for options -->
+         <button class="btn btn-secondary dropdown-toggle btn-light text-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           &#9776;
+         </button>
+         <!-- dropdown menu for options -->
+         <div class="dropdown-menu dropdown-menu-right border-info" aria-labelledby="dropdownMenuButton">
+           <a id="create-a-task" class="create-word dropdown-item text-secondary" href="#" data-toggle="modal" data-target="#create-task">create a task</a>
+           <a id="get-task" class="dropdown-item text-secondary" href="#" data-toggle="modal" data-target="#my-task">my To-Do list</a>
+           <a class="dropdown-item text-secondary" data-toggle="modal" data-target="#changepwModal" href="#">change password</a>
+           <a  id="sign-out" class="dropdown-item text-secondary" href="#">sign out</a>
+         </div>
+       </div>
+    </div>
+
+
+    <!-- messages -->
+    <div id ='signed-in-user' class='signed-in-user'></div>
+
+    <div id="choose-task-button" class="choose-task-button">
+      <div>You are currently working on</div>
+        <!-- dropdown for tasks  -->
+       <button class="btn btn-secondary dropdown-toggle btn-light text-info task-dropdown-button text-secondary" type="button" id="taskDownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Choose your task
+       </button>
+       <!-- dropdown menu for options -->
+       <div class="dropdown-menu task-dropdown dropdown-menu-left border-info" aria-labelledby="taskDownButton">
+       </div>
+    </div>
+
+    <!-- timer goes here -->
+    <div id='pomodoro-app' class='pomodoro-app'></div>
+    <div class='delete-message'></div>
+
+
+    <!-- change password modal -->
+      <div class="modal" id="changepwModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Change Password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="reset-pw-div">
+                <form id="change-password">
+                  <input class="form-control" type="password" name="passwords[old]" placeholder="old password" autocomplete="off">
+                  <br>
+                  <input class="form-control" type="password" name="passwords[new]" placeholder="new password" autocomplete="off">
+                  <input type="submit" id="change-password-button" class="change-password" placeholder="change a password" value="submit">
+                  <div id="change-pw-message"></div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- create a task modal -->
+          <div class="modal" id="create-task" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">Create a task</div>
+                  <h5 id="timer-create-message" class="modal-title timer-create-message"></h5>
+                  <div class="modal-body">
+                  <form id = 'timer'>
+                      <fieldset class='timer-create'>
+                        <div>
+                          <input class="task-name" type="text" name="timer[task_name]" placeholder="Enter Task Name">
+                        </div>
+                        <div>for how long? (e.g. 25 minutes)</div>
+                        <input type="text" name="timer[minutes]" placeholder="minutes" class='create-minutes'>
+                        <input type="text" name="timer[seconds]" placeholder="seconds" class='create-seconds'>
+                        <input type="hidden" name="timer[uses]">
+                        <input type="submit" placeholder="create a task" value="Create a task">
+                      </fieldset>
+                  </form>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <!-- <span aria-hidden="true">&times;</span> -->
+                  </button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- see my task -->
+          <div class="modal fade" id="my-task" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">To Do List</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="task-body">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- update timer modal -->
+          <div class="modal" id="updateModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header" id='message3'>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="reset-pw-div">
+                    <form id='updateTimer'>
+                      <input type="text" name="timer[task_name]" placeholder="Enter Task Name">
+                      <input type="text" name="timer[minutes]" placeholder="minutes">
+                      <input type="text" class="seconds" name="timer[seconds]" placeholder="seconds">
+                      <input type="submit" placeholder="Update Timer" value="Update" class="update-button">
+                    </form>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <footer>Created by Soo K.</footer>
+    </body>
+</html>
